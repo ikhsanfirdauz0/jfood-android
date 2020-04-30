@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity
                 LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
+
+                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(mainIntent);
             }
         });
 
