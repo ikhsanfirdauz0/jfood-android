@@ -106,4 +106,15 @@ public class Food
         this.seller = seller;
     }
 
+    public String toString()
+    {
+        return "==========FOOD==========" +
+                "\nId = " + getId() +
+                "\nName = " + getName() +
+                "\nSeller = " + getSeller().getName() +
+                "\nCity = " + seller.getLocation().getCity() +
+                "\nPrice = " + getPrice() +
+                "\nCategory = " + getCategory() + "\n";
+    }
+
 }

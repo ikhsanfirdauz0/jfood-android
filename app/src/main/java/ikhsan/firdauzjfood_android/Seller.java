@@ -94,4 +94,16 @@ public class Seller
         this.phoneNumber = phoneNumber;
     }
 
+    public void setLocation(Location location)
+    {
+        this.location = location;
+    }
+
+    public String toString()
+    {
+        return "Id = " + getId() +
+                "Name = " + name +
+                "Phone Number = " + getPhoneNumber() +
+                "Location =" + getLocation().getCity();
+    }
 }

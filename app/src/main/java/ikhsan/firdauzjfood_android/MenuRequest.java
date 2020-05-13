@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class MenuRequest extends StringRequest
 {
-    private static final String URL = "http://10.0.2.2:8080/menu";
+    private static final String URL = "http://10.0.2.2:8080/food";
     private Map<String, String> params;
     public MenuRequest(Response.Listener<String> listener)
     {

@@ -67,5 +67,11 @@ public class Location
         this.description = description;
     }
 
+    public String toString()
+    {
+        return "Province = " + getProvince() +
+                "City = " + getCity() +
+                "Description = " + getDescription();
+    }
 
 }
