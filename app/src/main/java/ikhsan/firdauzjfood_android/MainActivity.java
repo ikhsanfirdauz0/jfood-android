@@ -7,6 +7,8 @@ import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -28,15 +30,67 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
+    private static int currentUserId;
+    private static String currentUserName;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         expListView = findViewById(R.id.listFoods);
+        final Button button_pesanan = findViewById(R.id.button_pesanan);
+
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null)
+        {
+            currentUserId = extras.getInt("currentUserId");
+            currentUserName = extras.getString("currentUserName");
+        }
+
 
         refreshList();
+
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener()
+        {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id)
+            {
+                Intent intentBuatPesanan = new Intent(MainActivity.this, BuatPesananActivity.class);
+
+                int foodId = childMapping.get(listSeller.get(groupPosition)).get(childPosition).getId();
+                String foodName = childMapping.get(listSeller.get(groupPosition)).get(childPosition).getName();
+                String foodCategory = childMapping.get(listSeller.get(groupPosition)).get(childPosition).getCategory();
+                double foodPrice = childMapping.get(listSeller.get(groupPosition)).get(childPosition).getPrice();
+
+                intentBuatPesanan.putExtra("currentFoodId", foodId);
+                intentBuatPesanan.putExtra("currentFoodName", foodName);
+                intentBuatPesanan.putExtra("currentFoodCategory", foodCategory);
+                intentBuatPesanan.putExtra("currentFoodPrice", foodPrice);
+
+                intentBuatPesanan.putExtra("currentUserId", currentUserId);
+                intentBuatPesanan.putExtra("currentUserName", currentUserName);
+
+                startActivity(intentBuatPesanan);
+                return true;
+
+            }
+        });
+
+        button_pesanan.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intentPesanan = new Intent(MainActivity.this, SelesaiPesananActivity.class);
+                intentPesanan.putExtra("currentUserId", currentUserId);
+                startActivity(intentPesanan);
+            }
+        });
+
     }
 
     protected void refreshList() {

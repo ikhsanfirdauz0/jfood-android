@@ -46,11 +46,14 @@ public class LoginActivity extends AppCompatActivity
                     {
                         try
                         {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject != null)
+                            JSONObject objJSON = new JSONObject(response);
+                            if (objJSON != null)
                             {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                mainIntent.putExtra("currentUserId", objJSON.getInt("id"));
+                                mainIntent.putExtra("currentUserName", objJSON.getString("name"));
+                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(mainIntent);
                                 finish();
                             }

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuatPesananActivity">
+
+    <TextView
+        android:id="@+id/pesanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order"
+        android:textColor="#232323"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042"
+        tools:text="Order" />
+
+    <TextView
+        android:id="@+id/static_order_paymethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textColor="#232323"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_food_category"
+        app:layout_constraintVertical_bias="0.152"
+        tools:text="Payment Method" />
+
+    <TextView
+        android:id="@+id/order_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text view"
+        app:layout_constraintBottom_toTopOf="@+id/order_food_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <TextView
+        android:id="@+id/order_food_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <TextView
+        android:id="@+id/static_order_food_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Category"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209"
+        tools:text="Food Category" />
+
+    <TextView
+        android:id="@+id/order_food_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_food_category"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <TextView
+        android:id="@+id/static_order_promo_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Promo Code"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <EditText
+        android:id="@+id/order_promo_code"
+        android:layout_width="92dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="Enter Code"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <TextView
+        android:id="@+id/static_order_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_food_category"
+        app:layout_constraintVertical_bias="0.051"
+        tools:text="Food Price" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="124dp"
+        android:layout_height="81dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/static_order_paymethod"
+        app:layout_constraintVertical_bias="0.071">
+
+        <RadioButton
+            android:id="@+id/cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="362dp" />
+
+        <RadioButton
+            android:id="@+id/cashless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cashless"
+            android:textColor="@android:color/holo_blue_dark"
+            tools:layout_editor_absoluteX="68dp"
+            tools:layout_editor_absoluteY="394dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/static_order_delivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delivery Fee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <TextView
+        android:id="@+id/order_delivery_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="viewEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.257" />
+
+    <TextView
+        android:id="@+id/static_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Price"
+        android:textColor="#232323"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/order_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text view"
+        android:textColor="#232323"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <TextView
+        android:id="@+id/static_order_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Name"
+        app:layout_constraintBottom_toTopOf="@+id/order_food_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784"
+        tools:text="Food Name" />
+
+    <Button
+        android:id="@+id/hitung"
+        android:layout_width="263dp"
+        android:layout_height="46dp"
+        android:text="COUNT"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/static_total_price"
+        app:layout_constraintVertical_bias="0.175" />
+
+    <Button
+        android:id="@+id/pesan"
+        android:layout_width="263dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="40dp"
+        android:background="#4CAF50"
+        android:text="ORDER"
+        android:textColor="#EDEDED"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/static_total_price"
+        app:layout_constraintVertical_bias="0.858" /><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        />
+
+
+
+
+
+
+]]>
+</androidx.constraintlayout.widget.ConstraintLayout>
