@@ -39,14 +39,14 @@
     <TextView
         android:id="@+id/invoice_food_category"
         android:layout_width="77dp"
-        android:layout_height="23dp"
+        android:layout_height="22dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.886"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/static_invoice"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.258" />
 
     <TextView
         android:id="@+id/static_invoice_food_name"
@@ -63,7 +63,7 @@
     <TextView
         android:id="@+id/invoice_food_name"
         android:layout_width="77dp"
-        android:layout_height="23dp"
+        android:layout_height="22dp"
         android:layout_marginBottom="44dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,8 @@
         android:layout_width="225dp"
         android:layout_height="51dp"
         android:background="#FFFFFF"
-        android:text="CANCEL"
+        android:fontFamily="sans-serif-medium"
+        android:text="CANCEL ORDER"
         android:textColor="#66BB6A"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,14 +173,15 @@
 
     <TextView
         android:id="@+id/invoice_delivery_fee"
-        android:layout_width="71dp"
-        android:layout_height="23dp"
+        android:layout_width="115dp"
+        android:layout_height="22dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/invoice_button_finish"

@@ -115,7 +115,7 @@ public class BuatPesananActivity extends AppCompatActivity
                 if(selected.equals("Cash"))
                 {
                     double tempTotal = foodPrice + DELIVERY_FEE;
-                    total_price.setText("Rp. " + tempTotal);
+                    total_price.setText("Rp. " + tempTotal + ",-");
                     buttonHitung.setVisibility(View.INVISIBLE);
                     buttonOrder.setVisibility(View.VISIBLE);
                 }
@@ -129,7 +129,8 @@ public class BuatPesananActivity extends AppCompatActivity
                             {
                                 //no promo applied
                                 Toast.makeText(BuatPesananActivity.this, "No Promo Code Applied", Toast.LENGTH_SHORT).show();
-                                total_price.setText("Rp. " + foodPrice);
+                                total_price.setText("Rp. " + foodPrice + ",-");
+
                                 buttonHitung.setVisibility(View.INVISIBLE);
                                 buttonOrder.setVisibility(View.VISIBLE);
                             }
@@ -149,18 +150,28 @@ public class BuatPesananActivity extends AppCompatActivity
                                     } else if (promoStatus == false) {
                                         Toast.makeText(BuatPesananActivity.this, "Promo already expired", Toast.LENGTH_SHORT).show();
                                     } else if (promoStatus == true) {
-                                        if (foodPrice < promoMinPrice) {
+                                        if (foodPrice < promoMinPrice)
+                                        {
                                             Toast.makeText(BuatPesananActivity.this, "Minimum Price is not fulfilled", Toast.LENGTH_SHORT).show();
-                                        } else {
+                                        }
+                                        else
+                                        {
                                             Toast.makeText(BuatPesananActivity.this, "Promo Code Successfully Applied !", Toast.LENGTH_SHORT).show();
-                                            total_price.setText("Rp. " + (foodPrice - promoDiscountValue));
+                                            total_price.setText("Rp. " + (foodPrice - promoDiscountValue) + ",-");
                                             buttonHitung.setVisibility(View.INVISIBLE);
                                             buttonOrder.setVisibility(View.VISIBLE);
+
+                                            //change delivery fee to discount value
+                                            static_delivery_fee.setText("Discount");
+                                            String tmpDiscount = "- Rp." + promoDiscountValue + ",-";
+                                            delivery_fee.setText(tmpDiscount);
+                                            static_delivery_fee.setVisibility(View.VISIBLE);
+                                            delivery_fee.setVisibility(View.VISIBLE);
+
                                         }
                                     }
                                 } catch (JSONException e) {
                                     Toast.makeText(BuatPesananActivity.this, "Promo not found", Toast.LENGTH_LONG).show();
-                                    total_price.setText("Rp. " + foodPrice);
                                 }
 
                             }
@@ -214,28 +225,17 @@ public class BuatPesananActivity extends AppCompatActivity
                         try
                         {
                             JSONObject objJSON = new JSONObject(response);
-                            if(objJSON != null)
-                            {
-                                Toast.makeText(BuatPesananActivity.this, "Your order has been placed", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.putExtra("currentUserId", currentUserId);
-                                startActivity(intent);
-                            }
-                            else
-                            {
-                                buttonOrder.setVisibility(View.INVISIBLE);
-                                Toast.makeText(BuatPesananActivity.this, "Order Failed", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                intent.putExtra("currentUserId", currentUserId);
-                                startActivity(intent);
-                            }
+                            Toast.makeText(BuatPesananActivity.this, "Your order has been placed", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("currentUserId", currentUserId);
+                            startActivity(intent);
+                            finish();
                         }
                         catch (JSONException e)
                         {
                             e.printStackTrace();
-                            Toast.makeText(BuatPesananActivity.this, "yang ini juga masih error gan!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(BuatPesananActivity.this, "Please Finish Your Order First", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };

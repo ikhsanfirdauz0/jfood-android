@@ -1,24 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:background="#f4f4f4"
     android:orientation="vertical">
 
     <ExpandableListView
         android:id="@+id/listFoods"
         android:layout_width="match_parent"
-        android:layout_height="519dp" />
+        android:layout_height="519dp" >
 
-    <Button
-        android:id="@+id/button_pesanan"
+    </ExpandableListView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#4CAF50"
-        android:text="CHECKOUT"
-        android:textColor="#F8F8F8" />
+        android:layout_height="215dp">
+
+        <Button
+            android:id="@+id/button_logout"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="135dp"
+            android:layout_height="51dp"
+            android:background="@drawable/btn_border"
+            android:text="LOGOUT"
+            android:textAlignment="center"
+            android:textColor="#66BB6A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_pesanan"
+            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button_pesanan"
+            android:layout_width="269dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_rounded"
+            android:text="CHECKOUT"
+            android:textColor="#F8F8F8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

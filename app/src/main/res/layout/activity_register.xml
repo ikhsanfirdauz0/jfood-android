@@ -53,11 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:width="300dp"
-        android:backgroundTint="#606060"
+        android:backgroundTint="#3D703F"
         android:text="register"
         android:textColor="#FFEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

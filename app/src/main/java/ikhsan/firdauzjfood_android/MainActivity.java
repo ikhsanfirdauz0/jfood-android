@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private static int currentUserId;
     private static String currentUserName;
 
+    SharedPreferenceManager sharedPreferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         expListView = findViewById(R.id.listFoods);
         final Button button_pesanan = findViewById(R.id.button_pesanan);
+        final Button button_logout = findViewById(R.id.button_logout);
 
 
         Bundle extras = getIntent().getExtras();
@@ -88,6 +91,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentPesanan = new Intent(MainActivity.this, SelesaiPesananActivity.class);
                 intentPesanan.putExtra("currentUserId", currentUserId);
                 startActivity(intentPesanan);
+            }
+        });
+
+        button_logout.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+//                sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, false);
+                startActivity(new Intent(MainActivity.this, LoginActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
+                Toast.makeText(MainActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+                Intent intentLogout = new Intent(MainActivity.this, LoginActivity.class);
+                intentLogout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentLogout);
+                finish();
+
             }
         });
 

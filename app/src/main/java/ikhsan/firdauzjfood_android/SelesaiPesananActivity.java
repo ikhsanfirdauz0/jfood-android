@@ -28,7 +28,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
     private String foodCategory;
     private String customerName;
     private String date;
-    private int deliveryFee;
+    private String promoCode;
     private String paymentType;
     private int totalPrice;
     private String invoiceStatus;
@@ -124,17 +124,37 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                                     static_delivery_fee, static_payment_type, static_total_price,
                                     food_name, food_category, invoice_date, delivery_fee,
                                     payment_type, total_price, button_cancel, button_finish);
+
+                            //overwrite after changed to promo code
+                            static_delivery_fee.setText("Delivery fee");
                         }
                         else
                         {
                             static_no_order.setVisibility(View.VISIBLE);
                         }
 
+                        if(response.isEmpty())
+                        {
+                            static_no_order.setVisibility(View.VISIBLE);
+                        }
+
+                        //change delivery fee to promo code
                         if(paymentType.equals("Cashless"))
                         {
-                            delivery_fee.setVisibility(View.INVISIBLE);
-                            static_delivery_fee.setVisibility(View.INVISIBLE);
+                            static_delivery_fee.setText("Promo Code");
+                            promoCode = objInvoice.getString("promo");
+                            if(promoCode.equals("null"))
+                            {
+                                delivery_fee.setText("no promo applied");
+                            }
+                            else
+                            {
+                                JSONObject objPromo = objInvoice.getJSONObject("promo");
+                                promoCode = objPromo.getString("code");
+                                delivery_fee.setText(promoCode);
+                            }
                         }
+
 
                     }
 
@@ -165,13 +185,10 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                         {
                             JSONObject objJSON = new JSONObject(response);
                             Toast.makeText(SelesaiPesananActivity.this, "Your Order has been Canceled", Toast.LENGTH_SHORT).show();
-                            Intent intentInvoiceCancel = new Intent(SelesaiPesananActivity.this, MainActivity.class);
-                            startActivity(intentInvoiceCancel);
                         }
                         catch (JSONException e)
                         {
                             e.printStackTrace();
-                            Toast.makeText(SelesaiPesananActivity.this, "errrrorororrrrrrrrrrrrrrr", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };
@@ -180,7 +197,9 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                 queue.add(batalRequest);
 
                 Intent intentInvoice = new Intent(SelesaiPesananActivity.this, MainActivity.class);
+                intentInvoice.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentInvoice);
+                finish();
 
             }
         });
@@ -199,19 +218,21 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                         {
                             JSONObject objJSON = new JSONObject(response);
                             Toast.makeText(SelesaiPesananActivity.this, "Your Order has been Submitted", Toast.LENGTH_SHORT).show();
-                            Intent intentInvoiceFinish = new Intent(SelesaiPesananActivity.this, MainActivity.class);
-                            startActivity(intentInvoiceFinish);
                         }
                         catch (JSONException e)
                         {
                             e.printStackTrace();
-                            Toast.makeText(SelesaiPesananActivity.this, "Errorrororororrrrrr", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };
                 PesananSelesaiRequest selesaiRequest = new PesananSelesaiRequest(String.valueOf(currentInvoiceId), finishListener);
                 RequestQueue queue = Volley.newRequestQueue(SelesaiPesananActivity.this);
                 queue.add(selesaiRequest);
+
+                Intent intentInvoice = new Intent(SelesaiPesananActivity.this, MainActivity.class);
+                intentInvoice.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentInvoice);
+                finish();
             }
         });
 

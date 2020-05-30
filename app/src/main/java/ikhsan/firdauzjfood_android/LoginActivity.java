@@ -20,9 +20,20 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity
 {
 
+//    SharedPreferenceManager sharedPreferenceManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+//        sharedPreferenceManager = new SharedPreferenceManager(this);
+//
+//        if(sharedPreferenceManager.getSPAlreadyLogin())
+//        {
+//            startActivity(new Intent(LoginActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+//                    Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+//        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         final EditText inputEmail = findViewById(R.id.inputEmaIl);
@@ -49,6 +60,7 @@ public class LoginActivity extends AppCompatActivity
                             JSONObject objJSON = new JSONObject(response);
                             if (objJSON != null)
                             {
+//                                sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, true);
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 mainIntent.putExtra("currentUserId", objJSON.getInt("id"));
@@ -60,7 +72,7 @@ public class LoginActivity extends AppCompatActivity
                         }
                         catch(JSONException e)
                         {
-                            Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 };
