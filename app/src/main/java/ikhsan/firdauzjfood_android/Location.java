@@ -5,7 +5,13 @@ public class Location
     private String province;
     private String description;
     private String city;
-
+    
+    /**
+     * Constructor for initiate the location
+     * @param city is the city name
+     * @param province is the the province name
+     * @param description is the desc. of the city
+     */
     public Location(String city, String province, String description)
     {
         this.city = city;

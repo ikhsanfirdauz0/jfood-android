@@ -8,6 +8,14 @@ public class Food
     private String category;
     private Seller seller;
 
+    /**
+     * this is the constructor for objects in Food class
+     * @param id is id of the food
+     * @param name is name of the food
+     * @param seller is refering to some object of Seller class
+     * @param price is price of the food
+     * @param category is the category of the food
+     */
     public Food(int id, String name, Seller seller, int price, String category)
     {
         this.id = id;

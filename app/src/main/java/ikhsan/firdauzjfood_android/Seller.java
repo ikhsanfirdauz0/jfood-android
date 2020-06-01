@@ -8,6 +8,14 @@ public class Seller
     private String phoneNumber;
     private Location location;
 
+    /**
+     * constructor for objects class seller
+     * @param id is the id of seller
+     * @param name is the name of seller
+     * @param email is the email of seller
+     * @param phonenumber is phone number of seller
+     * @param location is refering to an object of class Location that contain information of the seller
+     */
     public Seller(int id, String name, String email, String phoneNumber,Location location)
     {
         this.id = id;
