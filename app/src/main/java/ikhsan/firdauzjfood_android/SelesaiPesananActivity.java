@@ -32,6 +32,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
     private String paymentType;
     private int totalPrice;
     private String invoiceStatus;
+    private int deliveryFee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -97,8 +98,6 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                         totalPrice = objInvoice.getInt("totalPrice");
                         invoiceStatus = objInvoice.getString("invoiceStatus");
 
-                        //causes error, everything not displayed
-                        //deliveryFee = objInvoice.getInt("deliveryFee");
 
                         invoice_id.setText(String.valueOf(currentInvoiceId));
                         invoice_date.setText(date.substring(0,9));
@@ -128,9 +127,6 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                                     static_delivery_fee, static_payment_type, static_total_price,
                                     food_name, food_category, invoice_date, delivery_fee,
                                     payment_type, total_price, button_cancel, button_finish);
-
-                            //overwrite after changed to promo code
-                            static_delivery_fee.setText("Delivery fee");
                         }
                         else
                         {
@@ -154,8 +150,13 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                                 delivery_fee.setText(promoCode);
                             }
                         }
-
-
+                        //if cash then rewrite delivery fee
+                        else
+                        {
+                            static_delivery_fee.setText("Delivery fee");
+                            deliveryFee = objInvoice.getInt("deliveryFee");
+                            delivery_fee.setText(String.valueOf(deliveryFee));
+                        }
                     }
 
 

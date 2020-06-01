@@ -5,7 +5,7 @@ public class Location
     private String province;
     private String description;
     private String city;
-    
+
     /**
      * Constructor for initiate the location
      * @param city is the city name

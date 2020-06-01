@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:shape="rectangle">
 
-    <solid android:color="#FAFAFA" />
-    <corners android:radius="7dp"/>
+    <solid android:color="#00FAFAFA" />
+    <corners android:radius="10dp"/>
 
     <stroke
         android:width="2dp"
