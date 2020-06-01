@@ -84,6 +84,10 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                 try
                 {
                     JSONArray responseJSON = new JSONArray(response);
+                    if(responseJSON.isNull(0))
+                    {
+                        static_no_order.setVisibility(View.VISIBLE);
+                    }
                     for(int i = 0; i < responseJSON.length(); i++)
                     {
                         JSONObject objInvoice =  responseJSON.getJSONObject(i);
@@ -133,10 +137,6 @@ public class SelesaiPesananActivity extends AppCompatActivity {
                             static_no_order.setVisibility(View.VISIBLE);
                         }
 
-                        if(response.isEmpty())
-                        {
-                            static_no_order.setVisibility(View.VISIBLE);
-                        }
 
                         //change delivery fee to promo code
                         if(paymentType.equals("Cashless"))

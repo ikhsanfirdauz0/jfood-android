@@ -43,27 +43,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="300dp"
-        android:backgroundTint="#3D703F"
+        android:background="@drawable/btn_rounded_dark"
         android:fontFamily="sans-serif"
         android:text="Login"
         android:textColor="#FFECEC"
+        style="?android:attr/borderlessButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/linkRegisterNow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Register Now"
-        android:textColor="#646FFA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
 
     <TextView
         android:id="@+id/textView2"
@@ -96,4 +84,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.79" />
+
+    <Button
+        android:id="@+id/button_register"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="301dp"
+        android:layout_height="47dp"
+        android:background="@drawable/btn_border"
+        android:text="REGISTER NOW"
+        android:textColor="#66BB6A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+        app:layout_constraintVertical_bias="0.139" />
+
+    <TextView
+        android:id="@+id/login_static_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textColor="#66BB6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

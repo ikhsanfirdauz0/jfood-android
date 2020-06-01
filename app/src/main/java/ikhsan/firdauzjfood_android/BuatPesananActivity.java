@@ -182,14 +182,6 @@ public class BuatPesananActivity extends AppCompatActivity
                     RequestQueue queue = Volley.newRequestQueue(BuatPesananActivity.this);
                     queue.add(promoRequest);
 
-           /*         Response.ErrorListener errorPromo = new Response.ErrorListener()
-                    {
-                        @Override
-                        public void onErrorResponse(VolleyError error)
-                        {
-                            Log.d("Error", "Error Occured", error);
-                        }
-                    }; */
                 }
                 else if(selected.isEmpty())
                 {

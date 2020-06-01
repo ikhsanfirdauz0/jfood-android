@@ -13,6 +13,12 @@ public class BuatPesananRequest extends StringRequest
     private static final String URLcashless = "http://10.0.2.2:8080/invoice/createCashlessInvoice";
     private HashMap<String, String> params;
 
+    /**
+     *
+     * @param foodList is a list of food's id that will be passed to the request URL
+     * @param customerId is the customer's id who order the foods and will be passed to the request URL
+     * @param listener the listener that will invoke this request
+     */
     public BuatPesananRequest(String foodList, String customerId, Response.Listener<String> listener)
     {
         super(Method.POST, URLcash, listener, null);
@@ -22,6 +28,13 @@ public class BuatPesananRequest extends StringRequest
         params.put("deliveryFee", "5000");
     }
 
+    /**
+     *
+     * @param foodList is a list of food's id that will be passed to the request URL
+     * @param customerId is the customer's id who order the foods and will be passed to the request URL
+     * @param promoCode is a string value of promo code that will be used in this invoice and will be passed to the request URL
+     * @param listener the listener that will invoke this request
+     */
     public BuatPesananRequest(String foodList, String customerId, String promoCode, Response.Listener<String> listener)
     {
         super(Method.POST, URLcashless, listener, null);

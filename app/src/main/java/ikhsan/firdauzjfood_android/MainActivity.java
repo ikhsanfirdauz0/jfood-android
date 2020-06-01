@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        sharedPreferenceManager = new SharedPreferenceManager(this);
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
         {
             currentUserId = extras.getInt("currentUserId");
             currentUserName = extras.getString("currentUserName");
+        }
+        if(sharedPreferenceManager.getSPAlreadyLogin())
+        {
+            currentUserId = sharedPreferenceManager.getSPId();
         }
 
 
@@ -99,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-//                sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, false);
+                if(sharedPreferenceManager.getSPAlreadyLogin())
+                {
+                    sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, false);
+                }
                 startActivity(new Intent(MainActivity.this, LoginActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                finish();
                 Toast.makeText(MainActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
                 Intent intentLogout = new Intent(MainActivity.this, LoginActivity.class);
-                intentLogout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentLogout);
                 finish();
 
             }

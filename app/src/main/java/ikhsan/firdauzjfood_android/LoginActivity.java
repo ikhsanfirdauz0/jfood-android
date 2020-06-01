@@ -20,26 +20,26 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity
 {
 
-//    SharedPreferenceManager sharedPreferenceManager;
+    SharedPreferenceManager sharedPreferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-//        sharedPreferenceManager = new SharedPreferenceManager(this);
-//
-//        if(sharedPreferenceManager.getSPAlreadyLogin())
-//        {
-//            startActivity(new Intent(LoginActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
-//                    Intent.FLAG_ACTIVITY_NEW_TASK));
-//            finish();
-//        }
+        sharedPreferenceManager = new SharedPreferenceManager(this);
+
+        if(sharedPreferenceManager.getSPAlreadyLogin())
+        {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                    Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         final EditText inputEmail = findViewById(R.id.inputEmaIl);
         final EditText inputPassword = findViewById(R.id.inputPassword);
+        final Button buttonRegister = findViewById(R.id.button_register);
         Button buttonLogin = findViewById(R.id.buttonLogin);
-        TextView linkRegisterNow = findViewById(R.id.linkRegisterNow);
 
 
         buttonLogin.setOnClickListener(new View.OnClickListener()
@@ -60,7 +60,8 @@ public class LoginActivity extends AppCompatActivity
                             JSONObject objJSON = new JSONObject(response);
                             if (objJSON != null)
                             {
-//                                sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, true);
+                                sharedPreferenceManager.saveSPBoolean(SharedPreferenceManager.SP_ALREADY_LOGIN, true);
+                                sharedPreferenceManager.saveSPInt(SharedPreferenceManager.SP_ID, objJSON.getInt("id"));
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 mainIntent.putExtra("currentUserId", objJSON.getInt("id"));
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        linkRegisterNow.setOnClickListener(new View.OnClickListener()
+        buttonRegister.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

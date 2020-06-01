@@ -92,7 +92,7 @@ public class MainListAdapter extends BaseExpandableListAdapter
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.lblListItem);
 
-        String s = "[" + childText.getId() + "] " + childText.getName() + ", Price : " + childText.getPrice();
+        String s = childText.getName() + ", Rp. " + childText.getPrice();
         txtListChild.setText(s);
 
         return convertView;

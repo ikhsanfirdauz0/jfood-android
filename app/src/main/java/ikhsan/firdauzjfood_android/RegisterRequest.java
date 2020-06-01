@@ -13,6 +13,13 @@ public class RegisterRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:8080/customer/register";
     private Map<String, String> params;
 
+    /**
+     *
+     * @param name is the name in the registration form that will be passed tp the request URL
+     * @param email is the email in the registration form that will be passed tp the request URL
+     * @param password is the password in the registration form that will be passed tp the request URL
+     * @param listener is the listener that will invoke this request
+     */
     public RegisterRequest(String name, String email, String password, Response.Listener<String> listener)
     {
         super(Method.POST, URL, listener, null);

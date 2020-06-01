@@ -8,6 +8,7 @@ public class SharedPreferenceManager
     public static final String SP_JFOOD = "spJfood";
     public static final String SP_NAME = "spNama";
     public static final String SP_EMAIL = "spEmail";
+    public static final String SP_ID = "spId";
     public static final String SP_ALREADY_LOGIN = "spAlreadyLogin";
 
     SharedPreferences sp;
@@ -41,6 +42,11 @@ public class SharedPreferenceManager
     public String getSPEmail(){
         return sp.getString(SP_EMAIL, "");
     }
+
+    public int getSPId(){
+        return sp.getInt(SP_ID, 0);
+    }
+
 
     public Boolean getSPAlreadyLogin(){
         return sp.getBoolean(SP_ALREADY_LOGIN, false);
